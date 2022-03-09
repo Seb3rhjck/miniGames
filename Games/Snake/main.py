@@ -50,53 +50,53 @@ fruta.goto(30, 30)
 fruta_vieja = []
 
 #Puntuacion
-puntuacion = turtle.Turtle
+puntuacion = turtle.Turtle()
 puntuacion.speed(0)
 puntuacion.color("white")
 puntuacion.penup()
 puntuacion.hideturtle()
-puntuacion.got(0, 300)
+puntuacion.goto(0, 300)
 puntuacion.write("Tu Puntuación Es:  ", align="center", font=("Courier", 24, "bold"))
 
 #Como Moverse
 def serpiente_go_up():
-    if serpiente.direction != "down":
-        serpiente.direction = "up"
+    if serpiente.direction != "Down":
+        serpiente.direction = "Up"
 
 def serpiente_go_down():
-    if serpiente.direction != "up":
-        serpiente.direction = "down"
+    if serpiente.direction != "Up":
+        serpiente.direction = "Down"
 
 def serpiente_go_left():
-    if serpiente.direction != "right":
-        serpiente.direction = "left"
+    if serpiente.direction != "Right":
+        serpiente.direction = "Left"
 
 def serpiente_go_right():
-    if serpiente.direction != "left":
-        serpiente.direction = "right"
+    if serpiente.direction != "Left":
+        serpiente.direction = "Right"
 
 def serpiente_move():
-    if serpiente.direccion == "up":
+    if serpiente.direction == "Up":
         y = serpiente.ycor()
         serpiente.sety(y + 20)
 
-    if serpiente.direccion == "down":
+    if serpiente.direction == "Down":
         y = serpiente.ycor()
         serpiente.sety(y - 20)
 
-    if serpiente.direccion == "left":
+    if serpiente.direction == "Left":
         x = serpiente.xcor()
         serpiente.sety(x - 20)
 
-    if serpiente.direccion == "up":
+    if serpiente.direction == "Up":
         x = serpiente.xcor()
         serpiente.sety(x + 20)
         
 screen.listen()
-screen.onekeypress(serpiente_go_up, "up")
-screen.onekeypress(serpiente_go_down, "down")
-screen.onekeypress(serpiente_go_left, "left")
-screen.onekeypress(serpiente_go_right, "right")
+screen.onkeypress(serpiente_go_up, "Up")
+screen.onkeypress(serpiente_go_down, "Down")
+screen.onkeypress(serpiente_go_left, "Left")
+screen.onkeypress(serpiente_go_right, "Right")
 
 
 while True:
@@ -130,7 +130,7 @@ while True:
     
     serpiente_move()
     
-    if serpiente.xcor() > 200 or serpiente.xcor() < -300 or serpiente.ycore() > 240 or serpiente.ycore() <-240:
+    if serpiente.xcor() > 200 or serpiente.xcor() < -300 or serpiente.ycor() > 240 or serpiente.ycor() <-240:
         time.sleep(1)
         screen.clear()
         screen.bgcolor("turquoise")
